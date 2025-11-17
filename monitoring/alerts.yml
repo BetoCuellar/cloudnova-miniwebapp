@@ -1,0 +1,29 @@
+groups:
+  - name: node_exporter_alerts
+    rules:
+      - alert: HighCPUUsage
+        expr: avg(rate(node_cpu_seconds_total{mode!="idle"}[5m])) * 100 > 80
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "CPU alta en la máquina"
+          description: "Uso promedio de CPU en los últimos 5 minutos es mayor al 80%."
+
+      - alert: LowDiskSpace
+        expr: (node_filesystem_avail_bytes{mountpoint="/"} / node_filesystem_size_bytes{mountpoint="/"}) < 0.15
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Espacio en disco bajo"
+          description: "Menos del 15% de espacio libre en el filesystem raíz."
+
+      - alert: HighMemoryUsage
+        expr: (1 - (node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes)) * 100 > 80
+        for: 5m
+        labels:
+          severity: warning
+        annotations:
+          summary: "Uso de memoria alto"
+          description: "Más del 80% de la memoria está en uso."

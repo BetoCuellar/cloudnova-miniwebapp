@@ -1,0 +1,17 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+rule_files:
+  - "alerts.yml"
+
+scrape_configs:
+  # Prometheus en sí mismo
+  - job_name: "prometheus"
+    static_configs:
+      - targets: ["prometheus:9090"]
+
+  # Node Exporter (métricas del sistema)
+  - job_name: "node_exporter"
+    static_configs:
+      - targets: ["node-exporter:9100"]
