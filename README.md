@@ -17,8 +17,12 @@ export FLASK_APP=run.py
 
 # CloudNova MiniWebApp
 
-## - Presentado por: Nicolas Alberto Cuellar Castrellón / 2220906
-Repositorio de la solución para el laboratorio de **Servicios Telemáticos**:
+## - Presentado por: 
+- Nicolas Alberto Cuellar Castrellón / 2220906
+- Santiago Duque Valencia / 2215270
+
+
+## Repositorio de la solución para el laboratorio de **Servicios Telemáticos**:
 
 - Empaquetado de la MiniWebApp en Docker.
 - Despliegue local con Vagrant + Docker.
